@@ -7,6 +7,7 @@
          "19": "icon_19.png",
          "38": "icon_38.png"
       },
+      "default_popup": "popup.html",
       "default_title": "Animal Crossing Music"
    },
    "description": "Play Animal Crossing's smooth background music in real-time throughout your day.",

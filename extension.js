@@ -1,8 +1,10 @@
 'use strict';
 
 // initialize
-var options, audio, sampler, tunePlayer, audioContext, defaultTune, playingHour, currentMusic, inKK, notifiedKK, exitingKK, badgeText, day, hour;
+var options, audio, sampler, tunePlayer, audioContext, defaultTune, playingHour, 
+	currentMusic, inKK, notifiedKK, exitingKK, badgeText, day, hour, playEqlPause;
 
+playEqlPause = false;
 audio = document.createElement('audio');
 audio.loop = true;
 
@@ -223,12 +225,14 @@ function init() {
 	chrome.browserAction.setBadgeBackgroundColor({ color: [57, 230, 0, 255] });
 }
 
-// play/pause when user clicks the extension icon
+// play/pause when user clicks the extension icon if user enabled, else show ui
 chrome.browserAction.onClicked.addListener(function() {
-	playPause(audio.paused);
-	chrome.storage.sync.set({
-		paused: audio.paused
-	}, function() {});
+	if (playEqlPause) {
+		playPause(audio.paused);
+		chrome.storage.sync.set({
+			paused: audio.paused
+		}, function() {});
+	} 
 });
 
 // listen for option changes and reflect them immediately

@@ -1,5 +1,5 @@
 (function() {
-  var availablePitches = ['-', '=', 'G1', 'A1', 'B1', 'C2', 'D2', 'E2', 'F2', 'G2', 'A2', 'B2', 'C3', 'D3', 'E3'];
+  var availablePitches = ['zZz', '-', 'G1', 'A1', 'B1', 'C2', 'D2', 'E2', 'F2', 'G2', 'A2', 'B2', 'C3', 'D3', 'E3'];
 
 
 var createBooper = function(audioContext) {
@@ -94,7 +94,7 @@ var createSampler = function(audioContext) {
     var req = new XMLHttpRequest();
     req.responseType = 'arraybuffer';
     req.onload = reqListener;
-    req.open("get", chrome.extension.getURL('bells.ogg'), true);
+    req.open("get", chrome.extension.getURL('../bells.ogg'), true);
     req.send();
   };
 
